@@ -1,5 +1,9 @@
 package;
 
+#if sys
+import sys.*;
+import sys.io.*;
+#end
 #if mobile
 import lime.utils.Assets as LimeAssets;
 import openfl.utils.Assets as OpenFLAssets;
