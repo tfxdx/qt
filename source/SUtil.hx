@@ -3,6 +3,10 @@ package;
 import lime.system.System as LimeSystem;
 import haxe.io.Path;
 import haxe.Exception;
+#if sys
+import sys.*;
+import sys.io.*;
+#end
 #if android
 import android.Tools;
 import android.callback.CallBack;
