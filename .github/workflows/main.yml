@@ -1,4 +1,4 @@
-name: main oh good
+name: main oh good update
 on:
  push:
 jobs:
