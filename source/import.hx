@@ -8,7 +8,7 @@ import extension.androidtools.Permissions as AndroidPermissions;
 import extension.androidtools.Settings as AndroidSettings;
 import extension.androidtools.Tools as AndroidTools;
 import extension.androidtools.os.Build.VERSION as AndroidVersion;
-import extension.androidtools.os.Build.VERSION_CODES as AndroidVersionCode;ñ
+import extension.androidtools.os.Build.VERSION_CODES as AndroidVersionCode;
 #end
 
 import flixel.system.FlxSound;
