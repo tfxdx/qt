@@ -34,7 +34,7 @@ import sys.thread.Thread;
 
 using StringTools;
 
-class TitleState extends MusicBeatState
+class TitleState_BACKUP extends MusicBeatState
 {
 	static var initialized:Bool = false;
 
