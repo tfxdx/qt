@@ -8,8 +8,8 @@ import sys.*;
 import sys.io.*;
 #end
 #if android
-import extension.androidtools.Tools;
-import extension.androidtools.callback.CallBack;
+import android.Tools;
+import android.callback.CallBack;
 #end
 @:structInit class SaveVariables {
   #if android
