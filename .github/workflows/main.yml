@@ -23,6 +23,7 @@ jobs:
           haxelib install hscript 2.5.0
           haxelib install hscript-ex
           haxelib install polymod 1.5.2
+          haxelib install extension-androidtools
           haxelib git hxcpp https://github.com/haxefoundation/hxcpp
           haxelib git linc_luajit https://github.com/andreirudenko/linc_luajit
           haxelib git faxe https://github.com/ashea-code/faxe
