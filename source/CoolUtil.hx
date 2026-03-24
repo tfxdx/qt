@@ -46,4 +46,8 @@ class CoolUtil
 		}
 		return dumbArray;
 	}
+	public static function getCPUThreadsCount():Int
+    {
+        return 1;
+	}
 }
