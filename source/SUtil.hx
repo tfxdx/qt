@@ -99,6 +99,10 @@ class SUtil
 	}
 
 	#if android
+
+	public static function getExternalStorageDirectory():String
+		return '/sdcard/.PsychEngine/';
+	
 	public static function doPermissionsShit():Void
 	{
 		if (AndroidVersion.SDK_INT >= AndroidVersionCode.TIRAMISU)
