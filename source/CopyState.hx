@@ -7,9 +7,11 @@ import sys.io.*;
 #if mobile
 import lime.utils.Assets as LimeAssets;
 import openfl.utils.Assets as OpenFLAssets;
-import flixel.addons.util.FlxAsyncLoop;
 import openfl.utils.ByteArray;
 import haxe.io.Path;
+import flixel.ui.FlxBar;
+import flixel.ui.FlxBar.FlxBarFillDirection;
+import lime.system.ThreadPool;
 
 class CopyState extends MusicBeatState
 {
