@@ -87,22 +87,28 @@ class CopyState extends MusicBeatState
 			if (loopTimes >= maxLoopTimes && canUpdate)
 			{
 				if (failedFiles.length > 0)
-			{
+				{
 					SUtil.showPopUp(failedFiles.join('\n'), 'Failed To Copy ${failedFiles.length} File.');
-					if (!FileSystem.exists('logs'))
-						FileSystem.createDirectory('logs');
-					File.saveContent('logs/' + Date.now().toString().replace(' ', '-').replace(':', "'") + '-CopyState' + '.txt', failedFilesStack.join('\n'));
+					final folder:String = #if android StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'logs/';
+					if (!FileSystem.exists(folder))
+						FileSystem.createDirectory(folder);
+					File.saveContent(folder + Date.now().toString().replace(' ', '-').replace(':', "'") + '-CopyState' + '.txt', failedFilesStack.join('\n'));
 				}
-				canUpdate = false;
-				FlxG.sound.play(Paths.sound('confirmMenu')).onComplete = () -> {
+				
+				FlxG.sound.play(Paths.sound('confirmMenu')).onComplete = () ->
+				{
 					FlxG.switchState(new TitleState());
 				};
+		
+				canUpdate = false;
 			}
 
-			if (maxLoopTimes == 0)
+			if (loopTimes >= maxLoopTimes)
 				loadedText.text = "Completed!";
 			else
 				loadedText.text = '$loopTimes/$maxLoopTimes';
+
+			loadingBar.percent = Math.min((loopTimes / maxLoopTimes) * 100, 100);
 		}
 		super.update(elapsed);
 	}
@@ -123,6 +129,11 @@ class CopyState extends MusicBeatState
 					else
 					{
 						var path:String = '';
+						#if android
+						if (file.startsWith('mods/'))
+							path = StorageUtil.getExternalStorageDirectory() + file;
+						else
+						#end
 							path = file;
 						File.saveBytes(path, getFileBytes(getFile(file)));
 					}		
@@ -145,6 +156,10 @@ class CopyState extends MusicBeatState
 	{
 		var fileName = Path.withoutDirectory(file);
 		var directory = Path.directory(file);
+		#if android
+		if (fileName.startsWith('mods/'))
+			directory = StorageUtil.getExternalStorageDirectory() + directory;
+		#end
 		try
 		{
 			var fileData:String = OpenFLAssets.getText(getFile(file));
@@ -172,7 +187,6 @@ class CopyState extends MusicBeatState
 		}
 	}
 
-
 	public static function getFile(file:String):String
 	{
 		if (OpenFLAssets.exists(file))
@@ -191,12 +205,17 @@ class CopyState extends MusicBeatState
 	public static function checkExistingFiles():Bool
 	{
 		locatedFiles = OpenFLAssets.list();
-		
+
 		// removes unwanted assets
 		var assets = locatedFiles.filter(folder -> folder.startsWith('assets/'));
 		var mods = locatedFiles.filter(folder -> folder.startsWith('mods/'));
 		locatedFiles = assets.concat(mods);
 		locatedFiles = locatedFiles.filter(file -> !FileSystem.exists(file));
+		#if android
+		for (file in locatedFiles)
+			if (file.startsWith('mods/'))
+				locatedFiles = locatedFiles.filter(file -> !FileSystem.exists(StorageUtil.getExternalStorageDirectory() + file));
+		#end
 
 		var filesToRemove:Array<String> = [];
 
