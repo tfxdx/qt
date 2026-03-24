@@ -107,15 +107,13 @@ class CopyState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	public function copyAsset()
+	public function copyAsset(file:String)
 	{
-		var file = locatedFiles[loopTimes];
-		loopTimes++;
 		if (!FileSystem.exists(file))
 		{
 			var directory = Path.directory(file);
 			if (!FileSystem.exists(directory))
-				SUtil.mkDirs(directory);
+				FileSystem.createDirectory(directory);
 			try
 			{
 				if (OpenFLAssets.exists(getFile(file)))
@@ -123,7 +121,11 @@ class CopyState extends MusicBeatState
 					if (textFilesExtensions.contains(Path.extension(file)))
 						createContentFromInternal(file);
 					else
-						File.saveBytes(file, getFileBytes(getFile(file)));
+					{
+						var path:String = '';
+							path = file;
+						File.saveBytes(path, getFileBytes(getFile(file)));
+					}		
 				}
 				else
 				{
