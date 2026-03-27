@@ -1,9 +1,12 @@
 name: main
-on:
- push:
+on: push
+permissions:
+  contents: write
+  discussions: write
 jobs:
   mobile:
     runs-on: macos-15
+    permissions: write-all
     steps:
       - name: checkout
         uses: actions/checkout@main
@@ -36,6 +39,13 @@ jobs:
           haxelib run lime rebuild hxcpp
       - name: compile
         run: haxelib run lime build android -ONLY_ARMV7
+      - name: Download Android Build
+        uses: actions/download-artifact@main
+        with:
+          name: Android
+          path: /home/runner
+      - name: Move Android File
+        run: mv /home/runner/qt-release.apk /home/runner/qt-Android.apk
       - name: upload
         uses: actions/upload-artifact@main
         with:
