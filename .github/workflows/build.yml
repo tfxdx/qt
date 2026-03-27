@@ -48,7 +48,7 @@ jobs:
           haxelib setup ~/haxelib
           haxelib git lime https://github.com/kittycathy233/lime
           haxelib git hxcpp https://github.com/kittycathy233/hxcpp
-          haxelib install openfl
+          haxelib install openfL 9.4.1
           haxelib install flixel 4.11.0
           haxelib install flixel-addons 2.11.0
           haxelib install flixel-ui 2.6.1
@@ -56,6 +56,7 @@ jobs:
           haxelib install hscript 2.5.0
           haxelib install hscript-ex
           haxelib install polymod 1.5.2
+          haxelib install flixel-tools
           haxelib git linc_luajit https://github.com/andreirudenko/linc_luajit
           haxelib git faxe https://github.com/ashea-code/faxe
           haxelib git discord_rpc https://github.com/aidan63/linc_discord-rpc
