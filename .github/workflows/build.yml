@@ -36,16 +36,6 @@ jobs:
         with:
           haxe-version: ${{ env.HAXE_VERSION }}
 
-      - name: Install libVLC
-        if: inputs.name == 'Linux'
-        run: sudo apt install libvlc-dev libvlccore-dev
-
-      - name: Setup XCode
-        if: inputs.name == 'iOS'
-        uses: maxim-lobanov/setup-xcode@master
-        with:
-          xcode-version: '16.4'
-
       - name: Install Libraries
         run: |
           haxelib setup ~/haxelib
@@ -73,14 +63,6 @@ jobs:
 
       - name: Compile
         run: haxelib run lime build ${{ inputs.buildArgs }}
-
-      - name: Make IPA
-        if: inputs.name == 'iOS'
-        run: |
-          cd export/release/ios/build/Release-iphoneos
-          mkdir Payload
-          mv *.app Payload
-          zip -r ${{ env.PROJECT_NAME }}.ipa Payload
 
       - name: Upload Artifact
         uses: actions/upload-artifact@main
