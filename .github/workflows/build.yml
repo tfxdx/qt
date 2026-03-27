@@ -39,8 +39,8 @@ jobs:
       - name: Install Libraries
         run: |
           haxelib setup ~/haxelib
-          haxelib git lime https://github.com/kittycathy233/lime-pe073T
-          haxelib git hxcpp https://github.com/kittycathy233/hxcpp-pe073T
+          haxelib git lime https://github.com/kittycathy233/lime
+          haxelib git hxcpp https://github.com/kittycathy233/hxcpp
           haxelib install openfl
           haxelib install flixel 4.11.0
           haxelib install flixel-addons 2.11.0
