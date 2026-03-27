@@ -52,6 +52,3 @@ jobs:
           last_release: false
           files: |
             /home/runner/*.apk
-            /home/runner/*.ipa
-            /home/runner/*.tar
-            /home/runner/*.zip
