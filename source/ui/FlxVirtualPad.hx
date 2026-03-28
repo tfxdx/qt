@@ -140,22 +140,7 @@ class FlxVirtualPad extends FlxSpriteGroup
 				actions.add(add(buttonOut = createButton(FlxG.width - 86 * 3, FlxG.height - 116 * 3, 44 * 3, 45 * 3, "out")));	
 				actions.add(add(buttonSave = createButton(FlxG.width - 86 * 3, FlxG.height - 160 * 3, 44 * 3, 45 * 3, "save")));				
 			case SONGD:
-				actions.add(add(buttonStage = createButton(0, FlxG.height - 240 * 3, 44 * 3, 45 * 3, "stage")));								
-			case A_B_6:
-				actions.add(add(buttonA = createButton(FlxG.width - 44 * 3, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "a")));
-				actions.add(add(buttonB = createButton(FlxG.width - 86 * 3, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "b")));
-				actions.add(add(button6 = createButton(FlxG.width - 44 * 3, FlxG.height - 116 * 3, 44 * 3, 45 * 3, "6")));
-			case A_B_6_1:
-				actions.add(add(buttonA = createButton(FlxG.width - 44 * 3, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "a")));
-				actions.add(add(buttonB = createButton(FlxG.width - 86 * 3, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "b")));
-				actions.add(add(button6 = createButton(FlxG.width - 44 * 3, FlxG.height - 116 * 3, 44 * 3, 45 * 3, "6")));
-				actions.add(add(button1 = createButton(FlxG.width - 86 * 3, FlxG.height - 116 * 3, 44 * 3, 45 * 3, "1")));
-			case A_B_6_1_7:
-				actions.add(add(buttonA = createButton(FlxG.width - 44 * 3, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "a")));
-				actions.add(add(buttonB = createButton(FlxG.width - 86 * 3, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "b")));
-				actions.add(add(button6 = createButton(FlxG.width - 44 * 3, FlxG.height - 116 * 3, 44 * 3, 45 * 3, "6")));
-				actions.add(add(button1 = createButton(FlxG.width - 44 * 3, FlxG.height - 160 * 3, 44 * 3, 45 * 3, "1")));	
-				actions.add(add(button7 = createButton(FlxG.width - 86 * 3, FlxG.height - 116 * 3, 44 * 3, 45 * 3, "7")));																					
+				actions.add(add(buttonStage = createButton(0, FlxG.height - 240 * 3, 44 * 3, 45 * 3, "stage")));																					
 			case A_B_C:
 				actions.add(add(buttonA = createButton(FlxG.width - 128, FlxG.height - 45, 44, 45, "a")));
 				actions.add(add(buttonB = createButton(FlxG.width - 86, FlxG.height - 45, 44, 45, "b")));
@@ -188,9 +173,6 @@ class FlxVirtualPad extends FlxSpriteGroup
 		buttonDown = null;
 		buttonRight = null;
 
-		button1 = null;
-		button6 = null;
-		button7 = null;
 		buttonIn = null;
 		buttonOut = null;
 		buttonSave = null;
@@ -273,9 +255,6 @@ enum FlxActionMode
 	ANIMATION;
 	SONGD;
 	STAGE;
-	A_B_6;
-	A_B_6_1;
-	A_B_6_1_7;
 	A_B_C;
 	A_B_X_Y;
 }
