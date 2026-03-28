@@ -1,6 +1,0 @@
-# Haxe libraries
-.haxelib/
-.PE104/
-
-# Export directory
-export/
