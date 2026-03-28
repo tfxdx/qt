@@ -324,22 +324,7 @@ class Controls extends FlxActionSet
 				inline forEachBound(Control.BACK, (action, state) -> addbutton(action, virtualPad.buttonB, state));
 			case STAGE:
 			case SONGD:
-			case ANIMATION:		
-			case A_B_6:
-				inline forEachBound(Control.ACCEPT, (action, state) -> addbutton(action, virtualPad.buttonA, state));
-				inline forEachBound(Control.BACK, (action, state) -> addbutton(action, virtualPad.buttonB, state));	
-				inline forEachBound(Control.SIX, (action, state) -> addbutton(action, virtualPad.button6, state));
-			case A_B_6_1:
-				inline forEachBound(Control.ACCEPT, (action, state) -> addbutton(action, virtualPad.buttonA, state));
-				inline forEachBound(Control.BACK, (action, state) -> addbutton(action, virtualPad.buttonB, state));	
-				inline forEachBound(Control.SIX, (action, state) -> addbutton(action, virtualPad.button6, state));	
-				inline forEachBound(Control.ONE, (action, state) -> addbutton(action, virtualPad.button1, state));
-			case A_B_6_1_7:
-				inline forEachBound(Control.ACCEPT, (action, state) -> addbutton(action, virtualPad.buttonA, state));
-				inline forEachBound(Control.BACK, (action, state) -> addbutton(action, virtualPad.buttonB, state));	
-				inline forEachBound(Control.SIX, (action, state) -> addbutton(action, virtualPad.button6, state));	
-				inline forEachBound(Control.ONE, (action, state) -> addbutton(action, virtualPad.button1, state));
-				inline forEachBound(Control.SEVEN, (action, state) -> addbutton(action, virtualPad.button7, state));																		
+			case ANIMATION:																
 			case A_B_C:
 				inline forEachBound(Control.ACCEPT, (action, state) -> addbutton(action, virtualPad.buttonA, state));
 				inline forEachBound(Control.BACK, (action, state) -> addbutton(action, virtualPad.buttonB, state));
