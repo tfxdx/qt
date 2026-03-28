@@ -29,7 +29,7 @@ class MusicBeatState extends FlxUIState
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
 
-	#if mobileC
+    #if mobileC
 	var _virtualpad:FlxVirtualPad;
 
 	var trackedinputs:Array<FlxActionInput> = [];
@@ -52,11 +52,13 @@ class MusicBeatState extends FlxUIState
 	public function addVirtualPad(?DPad, ?Action){};
 	#end
 
+	#if mobileC
 	override function destroy()
 	{
 		controls.removeFlxInput(trackedinputs);
 		super.destroy();
 	}
+	#end
 	override function create()
 	{
 		(cast (Lib.current.getChildAt(0), Main)).setFPSCap(FlxG.save.data.fpsCap);
