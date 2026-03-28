@@ -14,11 +14,13 @@ class MusicBeatSubstate extends FlxSubState
 	{
 		super();
 	}
+	#if mobileC
 	override function destroy()
 	{
 		controls.removeFlxInput(trackedinputs);
 		super.destroy();
 	}
+	#end
 	private var lastBeat:Float = 0;
 	private var lastStep:Float = 0;
 
